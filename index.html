@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Classroom - Dashboard</title>
+  <link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png">
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 10vh; background: #f9f9f9; }
+    input, button { padding: 10px; font-size: 1em; margin: 10px; }
+    iframe { width: 90vw; height: 80vh; border: none; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Classroom</h1>
+  <input id="urlInput" placeholder="https://example.com">
+  <button onclick="loadProxy()">開く</button>
+  <iframe id="proxyFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+
+  <script>
+    function loadProxy() {
+      const url = document.getElementById('urlInput').value.trim();
+      try {
+        new URL(url); // 構文チェック
+        const encodedUrl = encodeURIComponent(url);
+        const workerProxy = 'https://dark-cake-18b1.nekosuke-1012.workers.dev/?url=' + encodedUrl;
+        document.getElementById('proxyFrame').src = workerProxy;
+      } catch (e) {
+        alert('正しいURLを入力してください');
+      }
+    }
+  </script>
+</body>
+</html>
