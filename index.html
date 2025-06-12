@@ -22,7 +22,7 @@
       try {
         new URL(url); // 構文チェック
         const encodedUrl = encodeURIComponent(url);
-        const workerProxy = 'https://dark-cake-18b1.nekosuke-1012.workers.dev/?url=' + encodedUrl;
+        const workerProxy = 'https://my-proxy-worker.nekosuke-1012.workers.dev/?url=' + encodedUrl;
         document.getElementById('proxyFrame').src = workerProxy;
       } catch (e) {
         alert('正しいURLを入力してください');
